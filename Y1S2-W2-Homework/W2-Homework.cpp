@@ -19,25 +19,22 @@ void block() {
 
     for(int i=1; i<=count; i++) {
         if(i<count){
-            evenCheck = i % 2;
-            if (evenCheck==0) continue;
-            cout << i << " * ";
-            total = total * i;
-            
+        	evenCheck = i % 2;
+		if (evenCheck==0) continue;            
+		if (i==1) {cout << i; continue;}
+		cout << " * " << i;
+        	total = total * i;
         } else {
-            evenCheck = i % 2;
-            if (evenCheck==0){
-                cout << " = " << total << "\n";
-            } else {
-            total = total * i;
-            cout << i << " = " << total << "\n";}
+		evenCheck = i % 2;
+		if (evenCheck==0) {cout << " = " << total;}
+		else {total *= i; cout << " * " << i << " = " << total << "\n";}
         }
     }
-
-    system("pause");
 }
 
 int main(){
     block();
+    cout << "\n== End of Program ==\n\n";
+    getchar();
     return 0;
 }
