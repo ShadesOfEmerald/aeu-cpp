@@ -1,3 +1,5 @@
+#singleinstance force
+coordmode tooltip screen
 SetKeyDelay, 10, 100
 
 ; Play Speed Settings (0-Fast; 1-Normal; 2-Slow;)
