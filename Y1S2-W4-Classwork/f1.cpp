@@ -2,56 +2,73 @@
 using namespace std;
 
 //global variables
+double val1, val2;
 
 //function prototypes; declares;
-void input(double val1, double val2);
-double add(double val1, double val2);
-double sub(double val1, double val2);
-double mult(double val1, double val2);
-double div(double val1, double val2);
-void output();
+void input();
+double add(double x, double y);
+double sub(double x, double y);
+double mult(double x, double y);
+double div(double x, double y);
+double output(double x, double y);
 void linebreak(string preLineBreak, string postLineBreak);
 
 int main(){
-	double val1, val2;
-	input(val1, val2);
-	linebreak("\n", "\n\n");
+	input();
+
+	linebreak("\n", "\n");
 
 	cout << "The Results Are:";
 	linebreak("\n", "\n");
 	output(val1, val2);
+
+	system("pause");
+	return 0;
 }
 
-void input(double &val1, double &val2){
+void input(){
+	start:
 	cout << "Input val1: "; cin >> val1;
 	cout << "Input val2: "; cin >> val2;
+	while (cin.fail()){
+		cin.clear();
+		cin.ignore(256, '\n');
+		system("cls");
+		cout << "[Error, try again]\n";
+		goto start;
+	}
 }
 
-double add(double val1, double val2){
-	addOutput = val1+val2;
+double add(double x, double y){
+	double addOutput;
+	addOutput = x+y;
 	return addOutput;
 }
 
-double sub(double val1, double val2){
-	subOutput = val1-val2;
+double sub(double x, double y){
+	double subOutput;
+	subOutput = x-y;
 	return subOutput;
 }
 
-double mult(double val1, double val2){
-	multOutput = val1*val2;
+double mult(double x, double y){
+	double multOutput;
+	multOutput = x*y;
 	return multOutput;
 }
 
-double div(double val1, double val2){
-	divOutput = val1/val2;
+double div(double x, double y){
+	double divOutput;
+	divOutput = x/y;
 	return divOutput;
 }
 
-void output(double &val1, double &val2){
-	add(val1, val2); cout << "Addition:	 " << val1 << " + " << val2 << " = " << addOutput << "\n";
-	sub(val1, val2); cout << "Subtraciton:	 " << val1 << " - " << val2 << " = " << subOutput << "\n";
-	mult(val1, val2); cout << "Multiplication: " << val1 << " - " << val2 << " = " << multOutput << "\n";
-	div(val1, val2); cout << "Division: 	 " << val1 << " - " << val2 << " = " << divOutput << "\n";
+double output(double x, double y){
+	cout << "Addition:	 " << x << " + " << y << " = " << add(x, y) << "\n";
+	cout << "Subtraciton:	 " << x << " - " << y << " = " << sub(x, y) << "\n";
+	cout << "Multiplication:  " << x << " * " << y << " = " << mult(x, y) << "\n";
+	cout << "Division: 	 " << x << " / " << y << " = " << div(x, y) << "\n\n";
+	return 0;
 }
 
 void linebreak(string preLineBreak, string postLineBreak){
